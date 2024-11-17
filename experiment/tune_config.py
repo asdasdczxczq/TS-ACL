@@ -108,7 +108,7 @@ config_cl = {'LwF': {'lambda_kd_lwf': tune.grid_search([1, 1e1, 1e2, 1e3, 1e4]),
                            },
              'AIR':{
                 #  'gamma': tune.grid_search([0.1, 1, 10]),
-                'gamma' : 0,
+                'gamma' : 10,
                   }  
              }
 
