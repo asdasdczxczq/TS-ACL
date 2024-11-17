@@ -71,5 +71,6 @@ For convenience, we provide the processed data files for direct download. Please
     * GPU numbers in the `.sh` files in `shell`.
 
 ### Run Experiment
-
+for gamma=10
 nohup sh shell/all_exp.sh &
+for different gamma please change  TSACL\experiment\tune_config.py corresponding gamma value
