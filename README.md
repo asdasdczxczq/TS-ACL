@@ -1,6 +1,5 @@
 
 
-nohup sh shell/all_exp.sh &
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
@@ -71,6 +70,13 @@ For convenience, we provide the processed data files for direct download. Please
     * GPU numbers in the `.sh` files in `shell`.
 
 ### Run Experiment
-for gamma=10
+
+
+```sh
 nohup sh shell/all_exp.sh &
-for different gamma please change  TSACL\experiment\tune_config.py corresponding gamma value
+```
+
+### Acknowledgements
+
+The code is based on TSCIL: [Class-incremental Learning for Time Series: Benchmark and Evaluation ](https://github.com/zqiao11/TSCIL)
+Thanks  for such outstanding work!

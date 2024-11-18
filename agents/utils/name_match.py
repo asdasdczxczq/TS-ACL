@@ -14,8 +14,7 @@ from agents.der import DarkExperienceReplay
 from agents.gr import GenerativeReplay
 from agents.er_sub import ER_on_Subject
 from agents.fast_icarl import FastICARL
-from agents.ACIL import ACILLearner
-from agents.AIR import AIRLearner
+from agents.TSACL import TSACLLearner
 
 agents = {'SFT': SequentialFineTune,
           'ER': ExperienceReplay,
@@ -33,8 +32,7 @@ agents = {'SFT': SequentialFineTune,
           'DER': DarkExperienceReplay,
           'GR': GenerativeReplay,
           'FastICARL': FastICARL,
-          'ACIL': ACILLearner,
-          'AIR': AIRLearner
+          'TSACL': TSACLLearner
           }
 
 agents_replay = ['ER', 'DER', 'Herding', 'Mnemonics', 'ASER', 'Inversion', 'CLOPS', 'GR', 'ER_Sub', 'FastICARL']

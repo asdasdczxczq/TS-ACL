@@ -15,20 +15,21 @@ if __name__ == "__main__":
                         choices=['har', 'uwave', 'dailysports', 'grabmyo', 'wisdm',
                                  'ninapro', 'sines'])
     parser.add_argument('--encoder', dest='encoder', default='CNN', type=str)
-    parser.add_argument('--agent', dest='agent', default='AIR', type=str)
+    parser.add_argument('--agent', dest='agent', default='TSACL', type=str)
     parser.add_argument('--norm', dest='norm', default='BN', type=str)
     parser.add_argument('--buffer_size', type=int, default=8192,
-                        help='Buffer size for ACIL')
-    # parser.add_argument('--gamma', type=float, default=1,
-    #                     help='Gamma parameter for ACIL')
+                        help='Buffer size for TS-ACL')
+    parser.add_argument('--gamma', type=float, default=1,
+                        help='Gamma parameter for TSACL')
     parser.add_argument('--warmup_epochs', type=int, default=10,
-                        help='Number of warmup epochs for base training in ACIL')
+                        help='Number of warmup epochs for base training in TSACL')
     parser.add_argument('--momentum', type=float, default=0.9,
-                        help='Momentum for SGD optimizer in ACIL')
+                        help='Momentum for SGD optimizer in TSACL')
     parser.add_argument('--label_smoothing', type=float, default=0.0,
-                        help='Label smoothing for loss function in ACIL')
+                        help='Label smoothing for loss function in TSACL')
     parser.add_argument('--separate_decay', type=boolean_string, default=False,
-                        help='Use separate weight decay for ACIL')
+                        help='Use separate weight decay for TSACL')
+    parser.add_argument('--path_prefix', type=str, default='results',
     args = parser.parse_args()
 
     # Include unchanged general params
@@ -44,7 +45,7 @@ if __name__ == "__main__":
     args.exp_path = exp_path
     log_path = args.exp_path + '/log.txt'
     sys.stdout = Logger('{}'.format(log_path))
-    if args.agent == 'AIR':
+    if args.agent == 'TSACL':
         tune_and_experiment_multiple_runs_foracil(args)
     else:
         tune_and_experiment_multiple_runs(args)

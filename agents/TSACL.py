@@ -12,9 +12,9 @@ import os
 from utils.optimizer import set_optimizer, adjust_learning_rate
 import numpy as np
 
-class AIR(nn.Module):
+class TSACL(nn.Module):
     def __init__(self, backbone_output, backbone, buffer_size, gamma, device=None, dtype=torch.double, linear=RecursiveLinear,learned_classes=None):
-        super(AIR, self).__init__()
+        super(TSACL, self).__init__()
         factory_kwargs = {"device": device, "dtype": dtype}
         self.backbone = backbone
         self.backbone_output = backbone_output
@@ -43,9 +43,9 @@ class AIR(nn.Module):
         self.analytic_linear.update()
 
 
-class AIRLearner(BaseLearner):
+class TSACLLearner(BaseLearner):
     def __init__(self, model: nn.Module, args):
-        super(AIRLearner, self).__init__(model, args)
+        super(TSACLLearner, self).__init__(model, args)
         self.learning_rate = args.lr
         self.buffer_size = args.buffer_size
         self.gamma = args.gamma
@@ -61,7 +61,7 @@ class AIRLearner(BaseLearner):
             self.previous_model[0],
             self.previous_model[1]
         )
-        self.acil_model = AIR(
+        self.acil_model = TSACL(
             backbone_output=self.feature_dim,
             backbone=backbone,
             buffer_size=self.buffer_size,

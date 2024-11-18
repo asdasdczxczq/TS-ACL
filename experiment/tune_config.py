@@ -106,9 +106,9 @@ config_cl = {'LwF': {'lambda_kd_lwf': tune.grid_search([1, 1e1, 1e2, 1e3, 1e4]),
                            'augment_batch': False,
                            'regularize_freq_on_feat': True
                            },
-             'AIR':{
-                #  'gamma': tune.grid_search([0.1, 1, 10]),
-                'gamma' : 10,
+             'TSACL':{
+              
+                # 'gamma' : 10,
                   }  
              }
 

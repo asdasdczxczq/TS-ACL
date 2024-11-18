@@ -15,12 +15,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Train the continual learning agent on task sequence')
 
     # #################### Main setting for the experiment ####################
-    parser.add_argument('--agent', dest='agent', default='AIR', type=str,
+    parser.add_argument('--agent', dest='agent', default='TSACL', type=str,
                         choices=['SFT', 'Offline',
                                  'LwF', 'EWC', 'SI', 'MAS', 'DT2W',
                                  'ER', 'ASER', 'DER', 'Herding', 'CLOPS', 'ER_Sub'  # ER_Sub is only applicable to DSA
                                  'Mnemonics', 'Inversion', 'GR',
-                                 'FastICARL', 'ACIL', 'AIR'],
+                                 'FastICARL', 'TSACL'],
                         help='Continual learning agent')
 
     parser.add_argument('--scenario', type=str, default='class',
@@ -162,19 +162,19 @@ if __name__ == "__main__":
     parser.add_argument('--k_freq', type=int, default=-1)  # All freq if == -1, no loss_freq if == 0
     parser.add_argument('--regularize_freq_on_feat', default=False, type=boolean_string)
 
-    # ACIL-specific arguments
+    # TSACL-specific arguments
     parser.add_argument('--buffer_size', type=int, default=8192,
-                        help='Buffer size for ACIL')
+                        help='Buffer size for TSACL')
     parser.add_argument('--gamma', type=float, default=1,
-                        help='Gamma parameter for ACIL')
+                        help='Gamma parameter for TSACL')
     parser.add_argument('--warmup_epochs', type=int, default=10,
-                        help='Number of warmup epochs for base training in ACIL')
+                        help='Number of warmup epochs for base training in TSACL')
     parser.add_argument('--momentum', type=float, default=0.9,
-                        help='Momentum for SGD optimizer in ACIL')
+                        help='Momentum for SGD optimizer in TSACL')
     parser.add_argument('--label_smoothing', type=float, default=0.0,
-                        help='Label smoothing for loss function in ACIL')
+                        help='Label smoothing for loss function in TSACL')
     parser.add_argument('--separate_decay', type=boolean_string, default=False,
-                        help='Use separate weight decay for ACIL')
+                        help='Use separate weight decay for TSACL')
 
 
     args = parser.parse_args()
